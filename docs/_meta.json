@@ -1,0 +1,41 @@
+[
+  {
+    "text": "Guide",
+    "link": "/guide/",
+    "activeMatch": "/guide/"
+  },
+  {
+    "text": "HTML",
+    "link": "/page/html/",
+    "activeMatch": "/html/"
+  },
+  {
+    "text": "CSS",
+    "link": "/page/css/",
+    "activeMatch": "/css/"
+  },
+  {
+    "text": "JS",
+    "link": "/page/js/",
+    "activeMatch": "/js/"
+  },
+  {
+    "text": "WEBPACK",
+    "link": "/page/webpack/",
+    "activeMatch": "/webpack/"
+  },
+  {
+    "text": "VITE",
+    "link": "/page/vite/",
+    "activeMatch": "/vite/"
+  },
+  {
+    "text": "Hello world",
+    "link": "/hello/",
+    "activeMatch": "/hello/"
+  },
+  {
+    "text": "API",
+    "link": "https://rspress.dev/api/index.html"
+  }
+]
