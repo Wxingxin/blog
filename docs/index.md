@@ -11,6 +11,9 @@ hero:
     - theme: alt
       text: GitHub
       link: https://github.com/web-infra-dev/rspress
+    - theme: alt
+      text: leetcode
+      link: /leetcode/
 
   image:
     # 大图标
@@ -18,13 +21,15 @@ hero:
     alt: Logo
 features:
   # html
-  - title: HTML
+  - title: learn leetcode 100 hot
     details: The core compilation module is based on the Rust front-end toolchain, providing a more ultimate development experience.
-    icon: 🏃🏻‍♀️
+    icon: '<img src="/home/leetcode.png" alt="CSS" width="100" height="100" />'
+    link: /page/html/
+    size: large
   # css
   - title: CSS
-    details: MDX is a powerful way to write content, allowing you to use React components in Markdown.
-    icon: 📦
+    details: 功能介绍……
+    icon: '<img src="/home/css.png" alt="CSS" width="48" height="48" />'
   # js
   - title: JS
     details: Automatically generates a full-text search index for you during construction, providing out-of-the-box full-text search capabilities.
@@ -48,23 +53,8 @@ features:
   - title: NODE
     details: MDX is a powerful way to write content, allowing you to use React components in Markdown.
     icon: 📦
-  - title: NESTJS
+  - title: learn network
     details: MDX is a powerful way to write content, allowing you to use React components in Markdown.
-    icon: 📦
+    icon: '<img src="/home/network.png" alt="CSS" width="48" height="48" />'
 
 ---
-## 👋 感谢你翻到这里
-
-这是我的个人博客，一个记录成长、分享知识、表达观点的地方。
-
-### 🧰 我的技术方向
-- 前端开发：React、Next.js、TypeScript
-- Node.js + Express + MongoDB
-- Rust / 数据库 / 工程化探索
-
-### 📬 联系我
-如果你想交流技术，欢迎随时联系我。
-
-© 2025 Jiaxing Wei
-
-
