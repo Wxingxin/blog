@@ -1,3 +1,5 @@
+# JS
+
 > ### ES6 课程概述
 > <font color=red> ECMAScript、JavaScript、NodeJs， 它们的区别是什么? </font>
 
@@ -5,7 +7,6 @@
 - **JavaScript**：运行在浏览器端的语言，该语言使用 Es 标准。 ES + web api = JavaScript
 - **NodeJs**：运行在服务器端的语言，该语言使用 Es 标准。 ES + node api = JavaScript
 
-# 💯💯💯 OTHER
 
 > ## 1️⃣ `typeof null === 'object'`
 
