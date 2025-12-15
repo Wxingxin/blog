@@ -1,3 +1,7 @@
 [
-    "index"
+    {
+        "type": "file",
+        "name": "./Obj-02-promise.md",
+        "label": "Promise 对象"
+    }
 ]
