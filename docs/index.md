@@ -9,9 +9,6 @@ hero:
       text: Quick Start
       link: /guide/
     - theme: alt
-      text: MY GitHub
-      link: https://github.com/Wxingxin
-    - theme: alt
       text: leetcode 100 hot
       link: https://wxingxin.github.io/LeetCodeBlog/index.html
 
