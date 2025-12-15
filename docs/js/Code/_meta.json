@@ -1,7 +1,97 @@
 [
-    {
-        "type": "file",
-        "name": "./Obj-02-promise.md",
-        "label": "Promise 对象"
-    }
+  {
+    "type": "file",
+    "name": "index",
+    "label": "Index"
+  },
+  {
+    "type": "file",
+    "name": "Array-01-数组去重",
+    "label": "数组去重"
+  },
+  {
+    "type": "file",
+    "name": "Array-02-map",
+    "label": "map"
+  },
+  {
+    "type": "file",
+    "name": "Array-03-reduce",
+    "label": "reduce"
+  },
+  {
+    "type": "file",
+    "name": "Fun-01-柯里化",
+    "label": "柯里化"
+  },
+  {
+    "type": "file",
+    "name": "Fun-02-call",
+    "label": "call"
+  },
+  {
+    "type": "file",
+    "name": "Fun-03-apply",
+    "label": "apply"
+  },
+  {
+    "type": "file",
+    "name": "Fun-04-bind",
+    "label": "bind"
+  },
+  {
+    "type": "file",
+    "name": "Fun-05-once",
+    "label": "once"
+  },
+  {
+    "type": "file",
+    "name": "Fun-06-memoize",
+    "label": "memoize"
+  },
+  {
+    "type": "file",
+    "name": "Fun-07-实现asyncawait简单版",
+    "label": "实现asyncawait简单版"
+  },
+  {
+    "type": "file",
+    "name": "Obj-01-深浅拷贝",
+    "label": "深浅拷贝"
+  },
+  {
+    "type": "file",
+    "name": "Obj-02-promise",
+    "label": "promise"
+  },
+  {
+    "type": "file",
+    "name": "Obj-03-手写一个promise封装一个setTimeout",
+    "label": "手写一个promise封装一个setTimeout"
+  },
+  {
+    "type": "file",
+    "name": "Obj-04-instanceof",
+    "label": "instanceof"
+  },
+  {
+    "type": "file",
+    "name": "Things-01-节流和防抖",
+    "label": "节流和防抖"
+  },
+  {
+    "type": "file",
+    "name": "Things-02-发布-订阅",
+    "label": "发布-订阅"
+  },
+  {
+    "type": "file",
+    "name": "Things-03-Ajax",
+    "label": "Ajax"
+  },
+  {
+    "type": "file",
+    "name": "Things-04-file",
+    "label": "file"
+  }
 ]
