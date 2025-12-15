@@ -1,0 +1,32 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "Index"
+  },
+  {
+    "type": "file",
+    "name": "loader",
+    "label": "loader"
+  },
+  {
+    "type": "file",
+    "name": "plugin",
+    "label": "plugin"
+  },
+  {
+    "type": "file",
+    "name": "babel",
+    "label": "babel"
+  },
+  {
+    "type": "file",
+    "name": "eslint",
+    "label": "coneslintcatArray"
+  },
+  {
+    "type": "file",
+    "name": "other",
+    "label": "other"
+  }
+]

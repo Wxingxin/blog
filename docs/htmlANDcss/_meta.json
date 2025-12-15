@@ -1,0 +1,12 @@
+[
+  {
+    "type": "dir",
+    "name": "html",
+    "label": "HTML"
+  },
+  {
+    "type": "dir",
+    "name": "css",
+    "label": "CSS"
+  }
+]

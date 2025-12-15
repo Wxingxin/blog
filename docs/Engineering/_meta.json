@@ -1,0 +1,17 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "index"
+  },
+  {
+    "type": "dir",
+    "name": "webpack",
+    "label": "webpack"
+  },
+  {
+    "type": "dir",
+    "name": "vite",
+    "label": "vite"
+  }
+]

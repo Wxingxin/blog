@@ -1,0 +1,27 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "Index"
+  },
+  {
+    "type": "file",
+    "name": "picture",
+    "label": "picture"
+  },
+  {
+    "type": "file",
+    "name": "seo",
+    "label": "seo"
+  },
+  {
+    "type": "file",
+    "name": "script",
+    "label": "script"
+  },
+  {
+    "type": "file",
+    "name": "other",
+    "label": "other"
+  }
+]

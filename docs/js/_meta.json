@@ -1,0 +1,49 @@
+[
+  {
+    "type": "dir",
+    "name": "Base",
+    "label": "Base"
+  },
+  {
+    "type": "dir",
+    "name": "ES",
+    "label": "ES",
+    "collapsed": true,
+    "collapsible": true
+  },
+  {
+    "type": "dir",
+    "name": "Array",
+    "label": "Array",
+    "collapsed": true,
+    "collapsible": true
+  },
+  {
+    "type": "dir",
+    "name": "Fun",
+    "label": "Fun",
+    "collapsed": true,
+    "collapsible": true
+  },
+  {
+    "type": "dir",
+    "name": "Obj",
+    "label": "Obj",
+    "collapsed": true,
+    "collapsible": true
+  },
+  {
+    "type": "dir",
+    "name": "Code",
+    "label": "Code",
+    "collapsed": true,
+    "collapsible": true
+  },
+  {
+    "type": "dir",
+    "name": "Dom",
+    "label": "Dom",
+    "collapsed": true,
+    "collapsible": true
+  }
+]

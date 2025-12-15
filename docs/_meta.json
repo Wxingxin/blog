@@ -5,37 +5,23 @@
     "activeMatch": "/guide/"
   },
   {
-    "text": "HTML",
-    "link": "/page/html/",
+    "text": "HTML|CSS",
+    "link": "/htmlANDcss/",
     "activeMatch": "/html/"
   },
   {
-    "text": "CSS",
-    "link": "/page/css/",
-    "activeMatch": "/css/"
-  },
-  {
     "text": "JS",
-    "link": "/page/js/",
+    "link": "/js/",
     "activeMatch": "/js/"
   },
   {
-    "text": "WEBPACK",
-    "link": "/page/webpack/",
-    "activeMatch": "/webpack/"
+    "text": "ts",
+    "link": "/ts/",
+    "activeMatch": "/ts/"
   },
   {
-    "text": "VITE",
-    "link": "/page/vite/",
-    "activeMatch": "/vite/"
-  },
-  {
-    "text": "Hello world",
-    "link": "/hello/",
-    "activeMatch": "/hello/"
-  },
-  {
-    "text": "API",
-    "link": "https://rspress.dev/api/index.html"
+    "text": "Engineering",
+    "link": "/Engineering/",
+    "activeMatch": "/Engineering/"
   }
 ]
