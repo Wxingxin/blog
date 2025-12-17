@@ -45,5 +45,12 @@
     "label": "Dom",
     "collapsed": true,
     "collapsible": true
+  },
+  {
+    "type": "dir",
+    "name": "other",
+    "label": "Other",
+    "collapsed": true,
+    "collapsible": true
   }
 ]

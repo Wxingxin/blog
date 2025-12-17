@@ -1,4 +1,4 @@
-## 1-1. **使用 `Set`**
+## 1-1. 使用 `Set`
 
 最常见、最简单的方法。
 
@@ -10,7 +10,7 @@ console.log(unique); // [1, 2, 3, 4, 5]
 
 ---
 
-## 1-2. **ES6 `Array.from(new Set())`**
+## 1-2. ES6 `Array.from(new Set())`
 
 另一种 `Set` 写法。
 
@@ -22,7 +22,7 @@ console.log(unique); // [1, 2, 3, 4, 5]
 
 ---
 
-## 1-3. **使用 `Map`**
+## 1-3. 使用 `Map`
 
 通过哈希表记录是否出现过。
 
@@ -41,7 +41,7 @@ console.log(unique); // [1, 2, 3, 4, 5]
 
 ---
 
-## 2-1 **使用 `Object`**
+## 2-1 使用 `Object`
 
 利用对象的键不重复。
 
@@ -60,7 +60,7 @@ console.log(unique); // [1, 2, 3, 4, 5]
 
 ---
 
-## 2-2 **使用 `for + includes`**
+## 2-2 使用 `for + includes`
 
 最基础的循环写法。
 
@@ -77,7 +77,7 @@ console.log(unique); // [1, 2, 3, 4, 5]
 
 ---
 
-## 3-1. **使用 `filter + indexOf`**
+## 3-1. 使用 `filter + indexOf`
 
 保留数组中第一次出现的元素。
 
@@ -89,7 +89,7 @@ console.log(unique); // [1, 2, 3, 4, 5]
 
 ---
 
-## 3-2. **使用 `reduce + includes`**
+## 3-2. 使用 `reduce + includes`
 
 通过累加器构造新数组。
 
@@ -104,7 +104,7 @@ console.log(unique); // [1, 2, 3, 4, 5]
 
 ---
 
-## 3-3 **使用 `sort` + `for`**
+## 3-3 使用 `sort` + `for`
 
 先排序，再去重。
 
@@ -120,11 +120,11 @@ for (let i = 1; i < arr.length; i++) {
 console.log(unique); // [1, 2, 3, 4, 5]
 ```
 
-✅ **总结对比**：
+✅ 总结对比：
 
-- **推荐**：`Set`（简单、快）
-- **兼容性更好**：`filter + indexOf`
-- **控制更灵活**：`Map` / `Object`
+- 推荐：`Set`（简单、快）
+- 兼容性更好：`filter + indexOf`
+- 控制更灵活：`Map` / `Object`
 
 ---
 ## 性能结论

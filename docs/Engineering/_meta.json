@@ -5,6 +5,11 @@
     "label": "index"
   },
   {
+    "type": "file",
+    "name": "webpackvite",
+    "label": "WEBPACK & VITE"
+  },
+  {
     "type": "dir",
     "name": "webpack",
     "label": "webpack"

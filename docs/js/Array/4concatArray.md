@@ -6,7 +6,7 @@
 | `slice()`     | ❌             | 新数组 | 截取数组                  | ✅           |
 | `toSpliced()` | ❌             | 新数组 | 增删改数组（类似 splice） | ❌           |
 
-## 🧩 一、concat() —— 拼接数组或元素
+## concat() —— 拼接数组或元素
 
 ```js
 const arr1 = [1, 2];
@@ -26,7 +26,7 @@ console.log(arr1); // [1,2] 原数组不变
 
 ---
 
-## 🔹 slice() —— 截取数组
+## slice() —— 截取数组
 
 ```js
 const arr = [1, 2, 3, 4, 5];
@@ -51,7 +51,7 @@ console.log(arr.slice(-2)); // [4,5]
 
 ---
 
-## 🔹 toSpliced() —— 类似 splice，但不改原数组（ES2023）
+## toSpliced() —— 类似 splice，但不改原数组（ES2023）
 
 ```js
 const arr = [1, 2, 3, 4, 5];
@@ -72,7 +72,7 @@ console.log(arr); // [1, 2, 3, 4, 5] 原数组不变
 
 ---
 
-## 🔑 五、使用建议
+### 🔑 五、使用建议
 
 1. **拼接数组** → `concat()`
 2. **截取数组 / 复制副本** → `slice()`

@@ -2,26 +2,31 @@
   {
     "type": "file",
     "name": "index",
-    "label": "Index"
+    "label": "All CSS"
+  },
+  {
+    "type": "file",
+    "name": "base",
+    "label": "BASE"
   },
   {
     "type": "file",
     "name": "div",
-    "label": "div"
+    "label": "DIV"
   },
   {
     "type": "file",
     "name": "text",
-    "label": "text"
+    "label": "TEXT"
   },
   {
     "type": "file",
     "name": "bfcANDifc",
-    "label": "bfcANDifc"
+    "label": "BFCI & IFC"
   },
   {
     "type": "file",
     "name": "layout",
-    "label": "layout"
+    "label": "LAYOUT"
   }
 ]

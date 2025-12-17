@@ -2,26 +2,26 @@
   {
     "type": "file",
     "name": "index",
-    "label": "Index"
+    "label": "Base"
   },
   {
     "type": "file",
     "name": "picture",
-    "label": "picture"
+    "label": "Picture"
   },
   {
     "type": "file",
     "name": "seo",
-    "label": "seo"
+    "label": "Seo"
   },
   {
     "type": "file",
     "name": "script",
-    "label": "script"
+    "label": "Script"
   },
   {
     "type": "file",
     "name": "other",
-    "label": "other"
+    "label": "Other"
   }
 ]

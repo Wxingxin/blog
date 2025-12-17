@@ -1,531 +1,852 @@
-#  CSS
+# 大全
 
-### 是什么
+**CSS (层叠样式表) 知识图谱**
 
-1. 比较好的回答是：其实并不存在真正意义上的 CSS3，因为我有阅读 W3C 的文档。
+3. **引入方式 (Linking Methods)**
 
-- 从 CSS3 并不是一个**单一**的规范，而是**一系列**独立**模块**的集合，这些模块扩展了 CSS 的功能。
-- 这种模块化的 **发展方法** 允许 **不同的特性** 以 **不同的速度** 发展，可以更快的**标准化**一些特性，而不必等待 **整个规范** 的完成。
+- 外部样式表 (External Stylesheet): `<link rel="stylesheet" href="style.css">  `
+- 内部样式表 (Internal Stylesheet): `<style>` 标签
+- 内联样式 (Inline Styles): style 属性
 
-### **举例子**
+4. **基本选择器 (Basic Selectors)**
 
-1️⃣ 选择器（Selectors）：
+- 元素选择器 (Element Selector): p, div, h1
+- 类选择器 (Class Selector): .classname
+- ID 选择器 (ID Selector): #idname
+- 通用选择器 (Universal Selector):
+- 属性选择器 (Attribute Selectors):
+- `[attr]  `
+- `[attr=value]  `
+- `[attr~=value]  `
+- `[attr|=value]  `
+- `[attr^=value]  `
+- `[attr$=value]  `
+- `[attr*=value]  `
 
-- 新的属性选择器，如`[attr^=value]`（属性值以特定字符串开始）；
-- 结构性伪类,如:nth-child、:nth-last-child、:first-of-type ;
+5. **组合选择器 (Combinators)**
 
-2️⃣ 背景和边框（Backgrounds and Borders）：
+- 后代选择器 (Descendant Combinator): A B
+- 子代选择器 (Child Combinator): A > B
+- 相邻兄弟选择器 (Adjacent Sibling Combinator): A + B
+- 通用兄弟选择器 (General Sibling Combinator): A ~ B
 
-- 边框图片（border-image），允许使用图片来创建边框。
-- 多重背景，支持在单个元素上使用多个背景图片。
+6. **伪类选择器 (Pseudo-classes)**
 
-3️⃣ 文本效果（Text Effects）：
+- 链接伪类: :link, :visited
+- 用户行为伪类: :hover, :active, :focus
+- UI 元素状态伪类: :enabled, :disabled, :checked, :indeterminate
+- 结构性伪类:
+- :root
+- :empty
+- :first-child, :last-child
+- :nth-child(n), :nth-last-child(n)
+- :nth-of-type(n), :nth-last-of-type(n)
+- :first-of-type, :last-of-type
+- :only-child, :only-of-type
+- 目标伪类: :target
+- 否定伪类: :not(selector)
+- 语言伪类: :lang(language)
 
-- 文本阴影（text-shadow），可以在文字后面添加阴影效果。
-- 文本溢出（text-overflow），控制文本溢出容器时的显示方式。
+7. **伪元素选择器 (Pseudo-elements)**
 
-4️⃣ 转换和动画（CSS Transforms Module,CSS Animations ）:
+- ::before 在元素内容前插入内容
+- ::after 在元素内容后面插入内容
+- ::first-letter 选择文本的首字母
+- ::first-line 选择文本的首行
+- ::selection 选择用户选中的的文本
+- ::placeholder (用于表单输入)
 
-- 2D 和 3D 转换（transform），包括旋转（~rotate）、缩放（scale）、倾斜（skew）和平移（^translate）。
-- CSS 动画（animation），允许定义关键帧动画，控制动画序列。
+8. **颜色与单位 (Colors & Units)**
 
-# 💯💯💯 css 的单位 ⏸ 像素 ⏸ 选择器
+- 颜色值 (Color Values): 命名颜色, HEX, RGB, RGBA, HSL, HSLA
+- 长度单位 (Length Units):
+- 绝对单位: px, pt, cm, mm, in
+- 相对单位: em, rem, %, vw, vh, vmin, vmax
+- 其他单位: 角度 (deg, rad), 时间 (s, ms)
 
-> ### **CSS 单位有哪些？px、em、rem、%、vh/vw 区别？**
+# **二、核心概念 (Core Concepts)**
 
-###### 1️⃣ 绝对单位
+1. **层叠 (Cascade)**
 
-- px：绝对单位
-- `mm,cm,pc,pt` :打印用
+- 来源 (Origin): 作者样式表, 用户样式表, 浏览器默认样式表
+- 重要性 (Importance): !important
+- 特异性/优先级 (Specificity): ID > 类/属性/伪类 > 元素/伪元素 > 通用
+- 顺序 (Order): 后声明的覆盖先声明的
 
-###### 2️⃣ 相对单位
+2. **继承 (Inheritance)**
 
-- em：相对父元素**字体**大小
-- rem：相对根元素**字体**大小
+- 哪些属性可继承 (e.g., color, font-family)
+- 强制继承: inherit
+- 重置继承: initial, unset
 
-###### 3️⃣ 比例
+3. **盒模型 (Box Model)**
 
-- %：相对父元素宽/高
+- content (内容)
+- padding (内边距)
+- border (边框)
+- margin (外边距)
+- box-sizing: content-box (默认), border-box
 
-###### 4️⃣ 视口
+4. **display 属性 (Display Property)**
 
-| 单位   | 含义                     | 举例               |
-| ------ | ------------------------ | ------------------ |
-| `vw`   | 1vw = 视口宽度的 1%      | 100vw = 视口宽度   |
-| `vh`   | 1vh = 视口高度的 1%      | 100vh = 视口高度   |
-| `vmin` | 取 `vw` 与 `vh` 中较小者 | 保证元素能完整显示 |
-| `vmax` | 取 `vw` 与 `vh` 中较大者 | 保证充满较大方向   |
+- block (块级)
+- inline (行内)
+- inline-block (行内块)
+- none (隐藏)
+- flex (弹性布局)
+- grid (网格布局)
+- table, table-row, table-cell (表格布局)
+- list-item (列表项)
 
-###### 🔀
+5. **position 属性 (Position Property)**
 
-| 函数      | 作用           | 举例                                 |
-| --------- | -------------- | ------------------------------------ |
-| `calc()`  | 动态计算长度值 | `width: calc(100% - 50px);`          |
-| `clamp()` | 限制范围       | `font-size: clamp(1rem, 2vw, 2rem);` |
-| `min()`   | 取最小值       | `width: min(90vw, 600px);`           |
-| `max()`   | 取最大值       | `width: max(50%, 300px);`            |
+- static (默认)
+- relative (相对定位)
+- absolute (绝对定位)
+- fixed (固定定位)
+- sticky (粘性定位)
+- top, right, bottom, left
+- z-index (层叠顺序)
 
-> ### 说说设备像素，css 像素，设备独立像素，dpr，ppi 之间的区别
+6. **浮动与清除 (Floats & Clearing)**
 
-##### 物理像素（Physical Pixel）也称为设备像素，是显示屏幕的最小物理单位。
+- float: left, right, none
+- clear: left, right, both, none
+- 清除浮动的方法 (Clearing Floats): 空 div, overflow: hidden/auto, 伪元素方法
 
-- 每个物理像素可以发光并显示特定的颜色
-- 物理像素的大小是固定的，由设备的硬件决定。
-- 比如 iPhone 15 Pro Max 的分辨率 1290× 2796，指的就是物理像素;
-- 物理像素的密度（每英寸像素数量，即 PPI，英语：PixelsPerInch，缩写：PPI）
-- √PPI 越高，屏幕显示的内容就越细腻。
-- √ 1 英寸=2.54 厘米，在工业领域被广泛应用
+7. **CSS 值与函数 (CSS Values & Functions)**
 
-##### 逻辑像素（Logical Pixel），有时也被称为设备独立像素（Device IndependentPixel，简称 DiP）
+- calc() (计算)
+- var() (自定义属性/变量)
+- attr() (获取属性值)
+- url() (引用资源)
+- 颜色函数: rgb(), rgba(), hsl(), hsla()
+- 数学函数: min(), max(), clamp()
 
-- 是一个抽象的单位，用于在编程中统一不同设备的显示标准。
-- 逻辑像素是用来衡量在不同设备上如何统一显示内容的尺寸单位。
-- 例如，在高分辨率设备上，可能有多个物理像素组成一个逻辑像素。
-- 这样，无论设备的物理像素密度如何，使用逻辑像素单位开发的界面都能保持相对一致的大小和视觉效果。
+# **三、布局 (Layout)**
 
-> ### CSS 像素-DPI-PPI
+1. **传统布局 (Traditional Layout)**
 
-### 设备像素、CSS 像素、设备独立像素、DPR 和 PPI 的区别
+- 基于 display, position, float
 
-在网页开发和屏幕显示领域，这些概念主要用于处理不同设备的分辨率和显示效果，确保内容在各种屏幕（如手机、电脑）上的一致性。下面我先简要解释每个术语，然后用表格总结它们的区别和关系。这些概念源于像素密度和设备适配的需求，尤其在高分辨率（Retina）屏幕普及后变得重要。
+2. **Flexbox 弹性布局 (Flexible Box Layout)**
 
-- **设备像素（Device Pixels）**：也称物理像素，是屏幕硬件上的实际最小显示单元。例如，一块屏幕的分辨率是 1920x1080，就意味着它有 1920x1080 个设备像素。它们是真实的硬件点，不能改变。
-- **CSS 像素（CSS Pixels）**：CSS 样式表中使用的逻辑像素单位（如 width: 100px）。它不是固定大小，而是抽象的，浏览器会根据设备特性缩放以保持布局一致性。在标准屏幕上，1 CSS 像素 ≈ 1 设备像素，但高 DPR 设备上会不同。
+- 容器属性 (Container Properties):
+- display: flex | inline-flex
+- flex-direction: row, row-reverse, column, column-reverse
+- flex-wrap: nowrap, wrap, wrap-reverse
+- flex-flow: (flex-direction 和 flex-wrap 的简写)
+- justify-content: flex-start, flex-end, center, space-between, space-around, space-evenly
+- align-items: stretch, flex-start, flex-end, center, baseline
+- align-content: (多行/列内容对齐) flex-start, flex-end, center, space-between, space-around, stretch
+- 项目属性 (Item Properties):
+- order
+- flex-grow
+- flex-shrink
+- flex-basis
+- flex: (flex-grow, flex-shrink, flex-basis 的简写)
+- align-self
 
-- **设备独立像素（Device-Independent Pixels, DIP）**：也称密度独立像素（Density-Independent Pixels），是一种抽象单位，用于确保在不同像素密度的设备上，UI 元素的大小看起来一致。Android 系统常用 DIP（或 dp），而 iOS 用点（points）。它与 CSS 像素类似，常用于移动开发。
+3. **Grid 网格布局 (Grid Layout)**
 
-- **DPR（Device Pixel Ratio）**：设备像素比率，即设备像素与 CSS 像素的比率。例如，DPR=2 意味着 1 个 CSS 像素对应 4 个设备像素（2x2）。它帮助浏览器决定如何渲染内容，以适应高分辨率屏幕（如 Retina 显示屏）。
+- 容器属性 (Container Properties):
+- display: grid | inline-grid
+- grid-template-columns, grid-template-rows
+- grid-template-areas
+- grid-template: (简写)
+- column-gap (或 grid-column-gap), row-gap (或 grid-row-gap), gap (或 grid-gap)
+- justify-items, align-items
+- justify-content, align-content (当网格总大小小于其网格容器时)
+- grid-auto-columns, grid-auto-rows
+- grid-auto-flow
+- 项目属性 (Item Properties):
+- grid-column-start, grid-column-end, grid-column
+- grid-row-start, grid-row-end, grid-row
+- grid-area
+- justify-self, align-self
 
-- **PPI（Pixels Per Inch）**：每英寸像素数，衡量屏幕的像素密度（清晰度）。例如，PPI=300 表示每英寸有 300 个像素。高 PPI 屏幕更锐利，但需要更高的 DPR 来匹配软件渲染。
+4. **多列布局 (Multi-column Layout)**
 
-这些概念相互关联：DPR 和 PPI 描述硬件特性，而 CSS 像素和 DIP 是软件层面的抽象，帮助开发者创建响应式设计。
+- column-count
+- column-width
+- columns (简写)
+- column-gap
+- column-rule
+- column-span
+- break-before, break-after, break-inside
 
-| 概念             | 定义                                                                         | 与其他概念的关系                                                            | 示例场景                                                                                 |
-| ---------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| **设备像素**     | 屏幕硬件上的物理像素点，是实际的最小显示单元。                               | 是 DPR 的分子；PPI 基于设备像素计算。                                       | 一块 4K 屏幕有 3840x2160 设备像素，无论软件如何渲染，这些像素数量不变。                  |
-| **CSS 像素**     | CSS 中使用的逻辑像素单位，用于布局和样式定义，由浏览器根据 DPR 缩放。        | 等于 DIP 在 Web 上下文；DPR = 设备像素 / CSS 像素。                         | 在 DPR=1 的屏幕上，width:100px 占用 100 设备像素；在 DPR=2 上占用 200 设备像素。         |
-| **设备独立像素** | 密度独立的抽象像素单位，确保在不同密度屏幕上元素大小一致（常用于移动 App）。 | 与 CSS 像素类似或等价；忽略 PPI 差异，通过 DPR 转换到设备像素。             | Android 中 1dp 在低 PPI 屏幕上可能对应 1 设备像素，在高 PPI 上对应更多，以保持物理大小。 |
-| **DPR**          | 设备像素与 CSS 像素的比率，用于高分辨率屏幕的渲染适配。                      | 基于 PPI 计算（高 PPI 通常对应高 DPR）；直接影响 CSS 像素到设备像素的映射。 | iPhone Retina 屏 DPR=2，意味着图像需 2x 分辨率以避免模糊。                               |
-| **PPI**          | 每英寸的像素密度，衡量屏幕清晰度。                                           | 高 PPI 导致高 DPR；不直接影响软件层，但硬件基础决定 DPR。                   | 手机屏 PPI=400 比电脑屏 PPI=100 更清晰，但需 DPR 调整软件以匹配。                        |
+# **四、响应式设计 (Responsive Web Design - RWD)**
 
-> ### 🎯 一、CSS 权重的本质：四元组 (a, b, c, d)
->
-> CSS 计算选择器的“权重”是为了决定哪条规则优先生效。
+1. **视口 (Viewport)**
 
-| 选择器类型                 | 示例                             | 权重值（A,B,C,D） |
-| -------------------------- | -------------------------------- | ----------------- |
-| 行内样式（Inline）         | `<div style="color:red">`        | 1,0,0,0           |
-| ID 选择器                  | `#box`                           | 0,1,0,0           |
-| 类选择器、属性选择器、伪类 | `.item`, `[type=text]`, `:hover` | 0,0,1,0           |
-| 元素选择器、伪元素         | `div`, `p`, `::after`            | 0,0,0,1           |
-| 通配选择器、继承、层叠     | `*`, 继承属性                    | 0,0,0,0           |
+- `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
 
-**比较时：**
+2. **媒体查询 (Media Queries)**
 
-- 从左到右比较（A,B,C,D）
-- 数字越大权重越高
-- 若相等，则后定义的规则生效（后写的覆盖前写的）
+- @media 规则
+- 媒体类型 (Media Types): all, print, screen, speech
+- 媒体特性 (Media Features): width, height, aspect-ratio, orientation, resolution, hover, pointer
 
----
+3. **流式布局 (Fluid Layouts)**
 
-### 2. 特殊规则
+- 使用百分比和相对单位
 
-- **内联样式** > **ID 选择器** > **类/伪类/属性** > **元素/伪元素**
-- **`!important`** 不属于权重体系，它是“**终极优先级**”，但仍可被后一个相同层级的 `!important` 覆盖。
-- **继承的样式权重为 0**
-- **通配符（\*）的权重为 0**
-- **组合选择器权重相加**
-  例如：`div#app .title:hover` → `div(0,0,0,1)` + `#app(0,1,0,0)` + `.title(0,0,1,0)` + `:hover(0,0,1,0)` = **(0,1,2,1)**
+4. **弹性图片/媒体 (Flexible Images/Media)**
 
-> ### 🔹 案例 1：基础示例
+- max-width: 100%, height: auto
+- `<picture>` 元素, srcset 属性
+
+# 💯💯💯 **常用属性分类 字体-文本-背景-视觉效果**
+
+> ## **文本样式 (Text Styling)**
+
+> ### font
+
+#### font-family-字体族
+
+- 语法：font-family: 字体 1, 字体 2, serif/sans-serif;
+- 例：`font-family: "Roboto", "PingFang SC", sans-serif;`
+- 说明：按顺序查找字体，建议最后跟泛型字体。
+
+#### font-size-字号
+
+- 语法：font-size: `<length> | <percentage>`;
+- 例：`font-size: 16px; / 1.5rem; / 120%;`
+- 说明：可使用 px、em、rem、% 等单位。
+
+#### font-weight-字重
+
+- 语法：font-weight: normal | bold | 100–900;
+- 例：`font-weight: 600;`
+- 说明：数值越大越粗（取决于字体是否支持）。
+
+#### font-style- 字体样式
+
+- 语法：font-style: normal | italic | oblique;
+- 例：`font-style: italic;`
+- 说明：italic 通常是字体自带斜体，oblique 是倾斜效果。
+
+#### font-variant-小型大写
+
+语法：font-variant: normal | small-caps;
+例：`font-variant: small-caps;`
+说明：小写字母以大写形式展示，**但比例较小**。
+
+> ### text
+
+#### text-align,文本对齐
+
+语法：left | right | center | justify;
+例：text-align: justify;
+
+#### text-decoration,文本装饰
+
+语法：underline | overline | line-through | none;
+例：text-decoration: underline;
+说明：也可写颜色与样式：text-decoration: underline wavy red;
+
+#### text-transform,文本大小写转换
+
+语法：uppercase | lowercase | capitalize | none;
+例：text-transform: uppercase;
+
+#### text-indent,首行缩进
+
+语法：text-indent: <length> | <percentage>;
+例：text-indent: 2em;
+
+#### text-overflow 文本溢出显示方式
+
+语法：clip | ellipsis;
+例：text-overflow: ellipsis;
+说明：需与 overflow:hidden + white-space:nowrap 配合使用。
+
+> ### other
+
+#### white-space,空白处理规则
+
+值说明：
+
+- normal（默认，合并空白，可换行）
+- nowrap（不换行）
+- pre（保留空白，不自动换行）
+- pre-line（合并空白，但保留换行）
+- pre-wrap（保留空白，自动换行）
+
+#### word-spacing，单词间距
+
+例：word-spacing: 10px;
+
+#### letter-spacing,字母间距（字距）
+
+例：letter-spacing: 1px;
+
+#### word-break,单词断行规则
+
+值说明：
+
+- normal（默认）
+- break-all（必要时任何字符都能断开）
+- keep-all（中文不断词，英文不拆单词）
+  例：word-break: break-all;
+
+#### overflow-wrap（旧名 word-wrap）
+
+语法：normal | break-word;
+例：overflow-wrap: break-word;
+说明：长单词或 URL 溢出时允许换行。
+
+#### line-height 行高
+
+语法：<number> | <length>;
+例：line-height: 1.6; （推荐用无单位）
+说明：无单位是相对字体大小的倍数。
+
+#### color 文本颜色
+
+语法：
+
+- 关键字：red、blue
+- HEX：#fff、#1a1a1a
+- RGB：rgb(255,0,0)
+- RGBA：rgba(0,0,0,0.5)
+- HSL：hsl(200, 50%, 60%)
+
+> ## **背景样式 (Background Styling)**
+
+> #### background-color
+
+- 设置元素的背景颜色。
+
+**语法：**
 
 ```css
-div {
-  color: red;
-}
-.box {
-  color: blue;
-}
-#main {
-  color: green;
-}
+background-color: color;
 ```
 
-**计算：**
-
-| 选择器  | 权重      | 说明     |
-| ------- | --------- | -------- |
-| `div`   | (0,0,0,1) | 一个元素 |
-| `.box`  | (0,0,1,0) | 一个类   |
-| `#main` | (0,1,0,0) | 一个 ID  |
-
-🟢 **结果：绿色生效**，因为 ID 权重最高。
-
----
-
-> ### 🔹 案例 2：多个选择器叠加
+**示例：**
 
 ```css
-#app .content p {
-  color: blue;
-}
+background-color: #f0f0f0;
+background-color: rgba(0, 0, 0, 0.5);
 ```
 
-**拆分：**
+> #### background-image
 
-- `#app` → (0,1,0,0)
-- `.content` → (0,0,1,0)
-- `p` → (0,0,0,1)
+- 设置背景图片。
 
-**合计：**
-(0,1,1,1)
-
----
-
-> ### 🔹 案例 3：属性选择器的权重
+**语法：**
 
 ```css
-input[type="text"] {
-  color: red;
-}
-input.text-input {
-  color: blue;
-}
+background-image: url("image.jpg");
 ```
 
-**计算：**
-
-| 选择器               | 权重      | 说明        |
-| -------------------- | --------- | ----------- |
-| `input[type="text"]` | (0,0,1,1) | 属性 + 元素 |
-| `input.text-input`   | (0,0,1,1) | 类 + 元素   |
-
-🟢 权重相同 → 后定义的生效。
-
----
-
-> ### 🔹 案例 4：伪类的权重
+也可以设置多个背景：
 
 ```css
-button:hover {
-  color: red;
-}
-button:active {
-  color: blue;
-}
+background-image: url(a.png), url(b.png);
 ```
 
-**计算：**
+> #### background-repeat
 
-- `button:hover` → (0,0,1,1)
-- `button:active` → (0,0,1,1)
+- 决定背景图片是否重复及重复方向。
 
-权重相等 → **后写的生效**。
+**可选值：**
 
----
+| 值          | 效果                  |
+| ----------- | --------------------- |
+| `repeat`    | 水平+垂直重复（默认） |
+| `repeat-x`  | 水平重复              |
+| `repeat-y`  | 垂直重复              |
+| `no-repeat` | 不重复                |
+| `space`     | 均匀分布（不裁剪）    |
+| `round`     | 自动缩放以整除空间    |
 
-> ### 🔹 案例 5：伪元素的权重
+**示例：**
 
 ```css
-p::before {
-  color: red;
-}
-p::after {
-  color: blue;
-}
+background-repeat: no-repeat;
 ```
 
-伪元素属于“元素”类别 → (0,0,0,2)
+> #### background-position
 
-👉 权重相同 → 后定义的生效。
+- 设置背景图片的初始位置。
 
----
-
-> ### 🔹 案例 6：多层组合计算
+**语法：**
 
 ```css
-ul#nav li.active > a:hover {
-  color: red;
+background-position: x y;
+```
+
+**常用取值：**
+
+- 关键词：`left`, `center`, `right`, `top`, `bottom`
+- 数值/百分比：`20px 50%`
+
+**示例：**
+
+```css
+background-position: center top;
+```
+
+> #### background-attachment
+
+- 控制背景图滚动方式。
+
+**可选值：**
+
+| 值       | 描述                     |
+| -------- | ------------------------ |
+| `scroll` | 跟随页面滚动（默认）     |
+| `fixed`  | 固定在视口，不随滚动移动 |
+| `local`  | 随元素内容滚动           |
+
+**示例：**
+
+```css
+background-attachment: fixed;
+```
+
+> #### background-size
+
+- 设置背景图片尺寸。
+
+**可选值：**
+
+| 值             | 描述                     |
+| -------------- | ------------------------ |
+| `auto`         | 使用图片原尺寸（默认）   |
+| `cover`        | 按比例填满容器，可能裁剪 |
+| `contain`      | 包含在容器内，不裁剪     |
+| `width height` | 自定义尺寸               |
+
+**示例：**
+
+```css
+background-size: cover;
+background-size: 100px 200px;
+```
+
+> #### background-clip,
+
+- 决定背景绘制到哪个区域。
+
+**可选值：**
+
+| 值            | 描述               |
+| ------------- | ------------------ |
+| `border-box`  | 绘制到边框（默认） |
+| `padding-box` | 只绘制到内边距区域 |
+| `content-box` | 只绘制到内容区域   |
+
+**示例：**
+
+```css
+background-clip: padding-box;
+```
+
+> #### background-origin
+
+- 决定背景图片的定位参考点。
+
+**可选值：**
+
+| 值            | 描述                          |
+| ------------- | ----------------------------- |
+| `padding-box` | 相对 padding-box 定位（默认） |
+| `border-box`  | 相对 border-box 定位          |
+| `content-box` | 相对 content-box 定位         |
+
+**示例：**
+
+```css
+background-origin: content-box;
+```
+
+> #### background (简写)
+
+- 一个属性写完所有背景设置。
+
+**完整语法顺序（不必全部写，也不必须按顺序）**：
+
+```
+background:
+  background-color
+  background-image
+  background-repeat
+  background-attachment
+  background-position / background-size
+  background-origin
+  background-clip;
+```
+
+**示例：**
+
+```css
+background: #eee url(bg.jpg) no-repeat center/cover fixed content-box;
+```
+
+等价于：
+
+```css
+background-color: #eee;
+background-image: url(bg.jpg);
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+background-attachment: fixed;
+background-origin: content-box;
+```
+
+> ## **其他视觉效果 (Other Visual Effects)**
+
+> #### opacity (透明度)
+
+- 控制元素整体的不透明度（包含内容、背景、边框）。
+
+**取值范围：**
+
+```
+0 ~ 1
+```
+
+- `0` = 完全透明
+- `1` = 完全不透明
+
+**示例：**
+
+```css
+opacity: 0.5;
+```
+
+> #### visibility (可见性)
+
+- 控制元素是否可见，但不同于 `display`。
+
+**取值：**
+
+| 值         | 描述                  |
+| ---------- | --------------------- |
+| `visible`  | 可见（默认）          |
+| `hidden`   | 隐藏，但仍占布局空间  |
+| `collapse` | 表格专用，类似 hidden |
+
+**示例：**
+
+```css
+visibility: hidden;
+```
+
+> #### cursor (鼠标指针)
+
+- 设置鼠标悬停在元素上的光标形状。
+
+**常用值：**
+
+| 值                  | 效果                    |
+| ------------------- | ----------------------- |
+| `pointer`           | 手指（常用于按钮/链接） |
+| `default`           | 默认箭头                |
+| `text`              | 文本输入光标            |
+| `move`              | 移动十字箭头            |
+| `not-allowed`       | 禁止符号                |
+| `wait`              | 加载中                  |
+| `crosshair`         | 十字准星                |
+| `grab` / `grabbing` | 抓取手势                |
+
+也支持自定义图片：
+
+```css
+cursor: url(icon.png), pointer;
+```
+
+> #### box-shadow (盒子阴影)
+
+- 给元素的盒子添加阴影。
+
+**语法：**
+
+```css
+box-shadow: offset-x offset-y blur spread color inset;
+```
+
+**参数说明：**
+
+- `offset-x`：阴影水平偏移
+- `offset-y`：阴影垂直偏移
+- `blur`：模糊半径
+- `spread`：扩散半径
+- `color`：颜色
+- `inset`：可选关键字，表示内阴影
+
+**示例：**
+
+```css
+/* 外阴影 */
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+/* 内阴影 */
+box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+```
+
+> #### text-shadow (文本阴影)
+
+- 为文本添加阴影。
+
+**语法：**
+
+```css
+text-shadow: offset-x offset-y blur color;
+```
+
+**示例：**
+
+```css
+text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+```
+
+支持多个阴影：
+
+```css
+text-shadow: 0 0 5px red, 0 0 10px blue;
+```
+
+> #### border-radius (圆角)
+
+- 设置元素边框圆角。
+
+**常用用法：**
+
+```css
+border-radius: 10px; /* 四角统一 */
+border-radius: 10px 20px; /* 左上右下 / 右上左下 */
+border-radius: 10px 20px 30px 40px; /* 四角分别设置 */
+```
+
+**制作圆形或椭圆：**
+
+```css
+border-radius: 50%; /* 正方形 → 圆形 */
+```
+
+> #### outline (轮廓)
+
+- 绘制在元素边框外的线条，不占空间，与 `border` 不同。
+
+**组成：**
+
+```css
+outline: width style color;
+```
+
+**示例：**
+
+```css
+outline: 2px solid red;
+outline-offset: 5px; /* 离元素的距离 */
+```
+
+**常用于：**
+键盘聚焦、无影响布局的高亮框。
+
+> ## **列表样式 (List Styling)**
+
+> #### list-style-type
+
+设置列表项前的标记类型（项目符号、编号等）。
+
+**无序列表：**
+
+* `disc`（默认 ●）
+* `circle`（○）
+* `square`（■）
+* `none`（无符号）
+
+**有序列表：**
+
+* `decimal`（1,2,3）
+* `decimal-leading-zero`（01,02,03）
+* `lower-alpha`（a,b,c）
+* `upper-alpha`（A,B,C）
+* `lower-roman`（i, ii, iii）
+* `upper-roman`（I, II, III）
+
+
+```css
+list-style-type: square;
+```
+> #### list-style-image
+使用图像作为列表项标记。
+
+```css
+list-style-image: url("icon.png");
+```
+
+⚠️ 图片太大时无法自动缩放，较少使用。
+
+> #### list-style-position
+
+控制项目符号的位置。
+
+
+
+| 值             | 说明                |
+| ------------- | ----------------- |
+| `outside`（默认） | 符号在文本外；文本换行会与左侧对齐 |
+| `inside`      | 符号在文本内部；换行文本会缩进   |
+
+```css
+list-style-position: inside;
+```
+> #### list-style (简写)
+
+> ## **表格样式 (Table Styling)**
+
+> #### border-collapse, 
+
+设置单元格边框是否合并。
+
+### **取值：**
+
+| 值              | 说明                         |
+| -------------- | -------------------------- |
+| `collapse`     | 边框合并（常用于简洁表格）              |
+| `separate`（默认） | 边框独立，允许设置 `border-spacing` |
+
+### 示例：
+
+```css
+table {
+  border-collapse: collapse;
 }
 ```
 
-分解：
-
-- `ul` → (0,0,0,1)
-- `#nav` → (0,1,0,0)
-- `li.active` → (0,0,1,1)
-- `a:hover` → (0,0,1,1)
-
-加起来：
-→ **(0,1,2,3)**
-
-✅ 高权重组合（典型面试题）
-
 ---
+> #### border-spacing
 
-> ### 🔹 案例 7：行内样式
+> ####  caption-side, 
 
-```html
-<p style="color:red;">文本</p>
-```
+> #### empty-cells
 
-行内样式 = (1,0,0,0)
-✅ 无论 CSS 多复杂，都比外部 ID 选择器高。
+> ####  table-layout
 
----
+# 💯💯💯 动画
 
-> ### 🔹 案例 8：!important 决胜
+### 1. **CSS 变量 (Custom Properties)**
 
-```css
-#app .title {
-  color: red !important;
-}
-.title {
-  color: blue !important;
-}
-```
+- 声明: --variable-name: value;
+- 使用: var(--variable-name, fallback_value)
+- 作用域 (Scoping)
 
-两者都有 `!important` → 比权重：
+### 2. **变换 (Transforms)**
 
-- `#app .title` → (0,1,1,0)
-- `.title` → (0,0,1,0)
-  ✅ 红色生效。
+##### transform: `transform 用于对元素进行几何变换，不会影响文档流。`
 
-> 🧠 小结：
->
-> - `!important` 超越普通权重；
-> - 但多个 `!important` 时仍需比较权重；
-> - 行内样式若含 `!important`，是最强王者。
+- translate():将元素在水平、垂直方向移动。`transform: translate(50px, 20px);`
+- rotate():以元素中心为轴心旋转。`transform: rotate(45deg);`
+- scale(),:按比例放大或缩小元素。`transform: scale(1.5);`
+- skew(), 让元素在 X/Y 方向倾斜。`transform: skew(20deg, 10deg);`
+- matrix()将上述所有变换组合进一个 2D 变换矩阵（高级用法）。`transform: matrix(1, 0.2, 0.3, 1, 30, 20);`
+- transform-origin:控制变形的参考点（默认是元素中心）。`transform-origin: left top;transform: rotate(45deg);`
+- 2D 与 3D 变换
+  | 特性 | 2D 变换 | 3D 变换 |
+  | ---- | --------------------------------- | ---------------------------------------------- |
+  | 维度 | 平面（x,y） | 带 z 轴深度 |
+  | 常用函数 | translate / rotate / scale / skew | translate3d / rotate3d / scale3d / perspective |
+  | 视觉效果 | 平面的 | 立体、透视、深度感 |
 
-> ### 综合面试题 1
+3. **过渡 (Transitions)**
 
-```css
-div#main.content[data-role="box"] p.title strong::before
-```
+- transition-property 指定哪些属性参与过渡`transition-property: width, transform;`
+- transition-duration 过渡持续时间。`transition-duration: 0.5s;`
+- transition-timing-function 过渡速率曲线（运动方式）
+- - linear 匀速
+- - ease（默认）慢 → 快 → 慢
+- - ease-in 由慢变快
+- - ease-out 由快变慢
+- - cubic-bezier() 自定义曲线
 
-👉 权重是多少？
+- transition-delay 延迟多少秒开始执行`transition-delay: 0.2s;`
+- transition (简写) 将以上所有属性合并`transition: transform 0.5s ease-in-out 0s;`
 
-分解：
+4. **动画 (Animations)**
 
-- `div` → (0,0,0,1)
-- `#main` → (0,1,0,0)
-- `.content` → (0,0,1,0)
-- `[data-role="box"]` → (0,0,1,0)
-- `p` → (0,0,0,1)
-- `.title` → (0,0,1,0)
-- `strong` → (0,0,0,1)
-- `::before` → (0,0,0,1)
+- @keyframes 规则定义动画的每个阶段状态。
+- animation-name 指定要使用的关键帧名称。
+- animation-duration 动画持续时间。
+- animation-timing-function 与过渡的 timing-function 类似，控制动画速率。
+- animation-delay 动画开始前的延迟时间。
+- animation-iteration-count 动画播放次数
+- animation-direction
+  动画方向
 
-合计 = **(0,1,3,4)** ✅
+normal 正向
 
-> ### 综合面试题 1
+reverse 反向
 
-```css
-#app .a .b .c:hover p::after
-```
+alternate 正 → 反 循环
 
-→ 权重：(0,1,4,2)
+alternate-reverse 反 → 正 循环
 
----
+- animation-fill-mode 动画前后保留状态。
+- animation-play-state 暂停或运行动画。
+- animation (简写)
 
-> ### 综合面试题 1
+# 💯💯💯 **六、高级特性 (Advanced Features)**
 
-`input[type=text]:focus` 和 `input.text:focus` 哪个更高？
+| 滤镜            | 作用               |
+| --------------- | ------------------ |
+| `blur()`        | 模糊               |
+| `brightness()`  | 亮度               |
+| `contrast()`    | 对比度             |
+| `grayscale()`   | 灰度黑白           |
+| `hue-rotate()`  | 色相旋转           |
+| `invert()`      | 颜色反相           |
+| `opacity()`     | 不透明度           |
+| `saturate()`    | 饱和度增强/降低    |
+| `sepia()`       | 复古棕色           |
+| `drop-shadow()` | 投影，可适用非矩形 |
 
-都为：
+### **滤镜 (Filters)**filter:
 
-- `input[type=text]:focus` → (0,0,2,1)
-- `input.text:focus` → (0,0,2,1)
-  ➡️ 权重相同，**后写的生效**。
+#### blur(), 让元素变得模糊，类似景深效果。
 
+#### brightness(), 调整元素明暗程度。
 
+#### contrast(), 增强或降低对比度。
 
-# 💯💯💯 响应式与兼容性
+#### grayscale(), 转换为黑白照片效果。
 
-> ### 响应式设计是什么？原理？
+#### hue-rotate(), 改变色调，使颜色围绕色轮旋转。
 
-- 是什么 是一个网站能够兼容多个终端，而不是为每一个终端做一个特定的版本
+#### invert(),将颜色反转（类似底片效果）。
 
-- 为什么 通过媒体查询检测不同设备屏幕尺寸做处理。
+#### opacity(), （与 opacity 属性效果相同，但可与其他滤镜组合使用。）
 
-- 怎么触发 页面头部必须有 meta 声明 viewport
+#### saturate(),控制颜色浓度。
 
-> ### 兼容性
+#### sepia(),类似复古照片的棕褐色。
 
-为什么在移动端使用@2x @3x 的图片（移动端适配）
-目前在移动端设备中，有非常多高分辨率的设备。为了适应不同的像素密度，UI 设计师通常需要为开发者提供多个版本的图像资源。
-通常标记为@1x、@2x、@3× :
-·@1x 图像：基本尺寸，适用于低分辨率设备。
-@2x 图像：是基本图像尺寸的两倍，适用于中等分辨率设备，device-pixel-ratio 为 2 的设备。
-@3x 图像：是基本图像尺寸的三倍，适用于高分辨率设备，device-pixel-ratio 为 3 的设备。
-如果都使用的@1x 的图片，在高分辨率下就会图像非常模糊，模糊的图像可能会使产品显得粗糙，影响用户对应用品质的整体感觉。
+#### drop-shadow()与 box-shadow 类似，但可应用到透明区域。
 
-我们开发 Web 可以通过媒体查询来设置不同的图像：
+6. **混合模式 (Blend Modes)**
 
-> ### 什么是 1px 问题，如何去解决，如何画出 0.5px 边框 (先进的浏览器 0.5px)
-
-1. 我们知道在移动端的设计稿中，往往 UI 给的设计稿宽度为 750px，图中设计的边框宽度为 1px，在我们 375px 的设备下，我们应该将宽度写为 0.5px.
-2. 但是如果直接设置 0.5 的话，一些设备（特别是旧的移动设备和浏览器）并且不支持 0.5px，这个就是我们常说的 1px 问题以及如何画出 0.5px 边框的问题。
-3. 那么这种问题应该如何去处理呢？自前常见的方案有两种：
-
-- 方案一：viewport+rem+ div（淘宝，大家可以自行了解）
+- mix-blend-mode (元素间混合)
+- background-blend-mode (背景层间混合)
 
-##### 方案二：伪类+ transform（京东）
+7. **CSS Shapes (形状)**
 
-```html
-<head>
-  <title>Document</title>
-  <style>
-    .test {
-      position: relative;
-      display: inline-block;
-      margin: 30px;
-      padding: 8px;
-    }
-    .test::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      width: 200%;
-      height: 200%;
-      border: 1px solid red;
-      transform: scale(0.5);
-      transform-origin: top left;
-    }
-  </style>
-</head>
-<body>
-  <div class="test">Hello World</div>
-</body>
-```
+- shape-outside
+- shape-margin
+- shape-image-threshold
 
-> ### 通常会采取哪些措施来确保网站或者应用在不同的浏览器上的兼容性
+8. **滚动捕捉 (Scroll Snap)**
 
-1. 可以从这几个角度来回答：不同的浏览器存在兼容性问题的核心原因是不同的浏览器可能使用的是不同的浏览器内核。
-2. 其实在现代工程化的开发架构下，大多数的浏览器兼容性问题是可以通过工程化中的配置选项来解决的。
+- scroll-snap-type
+- scroll-snap-align
+- scroll-padding, scroll-margin
 
-##### 遇到问题
+9. **书写模式 (Writing Modes)**
 
-1. 比如 browserslist 可以配置目标的浏览器或者 Node 环境，然后在不同的工具中起作用，比如 autoprefixer/babel/postcss-preset-env 等，在进行了正确的配置后，开发的 Vue 或者 React 项目在进行打包时，会自动根据目标环境来添加 CSS 前缀、Babel 代码转换等。
-2. 如果我们想要额外的适配，通常在项目中我们还会引 I 入 normal.css 和 polyfils 来添加特定的 cSS、JS 的适配问题
-3. 还有一些事针对移动端的，比如移动端点击 300ms 的延迟、移动端 1px 边框的问题，都可以在特定的环境或者需求下来解决
-4. 当遇到问题时，很重要的事我们需要多查询 caniuse 的网站来确定某些特性的兼容性
-5. 另外如果针对特定的用户使用的是不同的浏览器和设备时，我们需要使用特定的工具，比如 BrowserStack 这样的工具来进行测试遇到特定问题时，及时的解决和处理
-
-##### 举一个具体的例子（越具体的例子，就越真实，越有说服力）：
-
-1. 比如之前我们在开发中借助于 transform 实现动画效果，使用的是复合属性，transform:translate(10px,20px) scale(1.5);。
-2. 但是这种复合属性在 IE11 上是有问题，因为它并不支持，所以我们就必须对它拆分属性，首先设置 translate，在它的外层再包裹一个容器，用来设置 scale 属性
-
-# 💯💯💯 other
-
-## 分析 css 代码阻塞怎么办
-
-> ### 🧩 一、为什么 CSS 会阻塞？
-
-浏览器渲染流程（关键点）：
-
-1. 解析 HTML → 构建 DOM；
-2. 解析 CSS → 构建 CSSOM；
-3. DOM + CSSOM → Render Tree；
-4. 再执行 JS、布局和绘制。
-
-⚠️ 所以：
-
-- **外部 CSS** 会阻塞页面的渲染（Render Tree 依赖 CSSOM）；
-- **JS 执行** 也会被 CSS 阻塞（浏览器要等 CSSOM 构建完再执行 JS，避免修改样式导致回流）。
-
----
-
-> ### ⚙️ 二、如何分析是否阻塞？
-
-1. 打开 **Chrome DevTools → Performance 或 Network 面板**；
-2. 查看 CSS 文件加载顺序与阻塞时间；
-3. 检查：
-
-   - 是否放在 `<head>`；
-   - 是否存在 render-blocking（渲染阻塞）标签；
-   - 是否可延迟加载的 CSS。
-
----
-
-> ### ✅ 1. **关键 CSS 内联**
-
-> 把首屏关键样式直接写在 `<style>` 标签中，减少首屏等待。
-
-```html
-<head>
-  <style>
-    /* 关键部分样式 */
-    body {
-      font-family: sans-serif;
-    }
-  </style>
-</head>
-```
-
-- 只加载必要的样式；
-- 非关键部分延迟加载。
-
----
-
-> ### ✅ 2. **异步加载非关键 CSS**
-
-```html
-<link
-  rel="preload"
-  href="style.css"
-  as="style"
-  onload="this.rel='stylesheet'"
-/>
-<noscript><link rel="stylesheet" href="style.css" /></noscript>
-```
-
-> `preload` 先加载但不阻塞，`onload` 后再应用。
-
----
-
-> ### ✅ 3. **分离首屏与非首屏样式**
-
-- 用构建工具（Webpack、Vite）提取关键 CSS；
-- 首屏内联，剩余样式延迟加载：
-
-  ```js
-  import(/* webpackPrefetch: true */ "./lazy.css");
-  ```
-
----
-
-> ### ✅ 4. **使用媒体查询延迟加载**
-
-```html
-<link rel="stylesheet" href="print.css" media="print" />
-<link rel="stylesheet" href="mobile.css" media="(max-width: 600px)" />
-```
-
-- 只有匹配时才加载，其他情况不会阻塞。
-
----
-
-> ### ✅ 5. **减少 CSS 文件体积**
-
-- 合并文件、压缩（minify）、去除未使用样式（Tree Shaking）。
-
----
-
-## 🧠 四、面试简答模板
-
-> CSS 文件是渲染阻塞资源，浏览器需要先加载并解析 CSS 才能构建渲染树。
-> 优化方式包括：
->
-> 1. 将关键 CSS 内联到 HTML；
-> 2. 使用 `preload` 或 `media` 异步加载非关键样式；
-> 3. 减少和压缩 CSS 文件体积；
-> 4. 利用构建工具提取首屏关键 CSS。
-
-> ### link 和 @import 的区别
-
-- link 是 xhtml 标签，除了引入 css 外，还可以加载库，框架，工具等；@import 属于 css 范畴，只能加载 css
-- link 引用 css 的时候，在页面载入时同时加载。 @import 需要页面完全加载完成后加载
-- link 是 xhtml 标签，无兼容问题，@import 是 css2 提出来的，低版本的浏览器不支持
+- writing-mode
+- 逻辑属性 (Logical Properties): margin-block-start, padding-inline-end, etc.

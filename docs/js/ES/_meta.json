@@ -2,7 +2,7 @@
   {
     "type": "file",
     "name": "index",
-    "label": "Index"
+    "label": "ES6+简介"
   },
   {
     "type": "file",
@@ -103,5 +103,10 @@
     "type": "file",
     "name": "31-Proxy",
     "label": "Proxy"
+  },
+  {
+    "type": "file",
+    "name": "32-装饰器",
+    "label": "装饰器"
   }
 ]

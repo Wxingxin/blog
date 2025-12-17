@@ -1,6 +1,5 @@
-# 💯💯💯 第四部分 html 面试题 script
 
-> ### 1. `<script>`, `defer`, `async` 的区别？
+## 1. `<script>`, `defer`, `async` 的区别？
 
 **问：**
 在 HTML 中，`<script>...</script>`、`<script defer>...</script>`、`<script async>...</script>` 有什么区别？
@@ -50,7 +49,7 @@
 
 ---
 
-> ### 2. 它们对 DOM 解析和页面渲染有什么影响？
+## 2. 它们对 DOM 解析和页面渲染有什么影响？
 
 **问：**
 `<script>` / `defer` / `async` 对 DOM 解析顺序和页面渲染有什么影响？
@@ -77,7 +76,7 @@
 
 ---
 
-> ### 3. 多个 `defer` / `async` 脚本的执行顺序？
+## 3. 多个 `defer` / `async` 脚本的执行顺序？
 
 **问：**
 多个 `defer` 脚本和多个 `async` 脚本的执行顺序是怎样的？
@@ -107,7 +106,7 @@
 
 ---
 
-> ### 4. 什么时候用 `defer`，什么时候用 `async`？
+## 4. 什么时候用 `defer`，什么时候用 `async`？
 
 **问：**
 实际项目中，分别在什么场景下使用 `defer` 和 `async`？
@@ -140,7 +139,7 @@
 
 ---
 
-> ### 5. `defer` 与 `DOMContentLoaded`、`load` 的关系？
+## 5. `defer` 与 `DOMContentLoaded`、`load` 的关系？
 
 **问：**
 `defer` 脚本的执行时机和 `DOMContentLoaded` / `load` 事件的触发顺序是怎样的？
@@ -161,7 +160,7 @@
 
 ---
 
-> ### 6. 为什么推荐把 `<script>` 放在 `</body>` 前面？和 `defer` 有什么区别？
+## 6. 为什么推荐把 `<script>` 放在 `</body>` 前面？和 `defer` 有什么区别？
 
 **问：**
 很多项目会把 `<script>` 放在 `</body>` 前面，这和使用 `defer` 有什么不同？
@@ -195,7 +194,7 @@
 
 ---
 
-> ### 7. 内联脚本可以用 `defer` / `async` 吗？
+## 7. 内联脚本可以用 `defer` / `async` 吗？
 
 **问：**
 内联脚本 `<script>console.log(1)</script>` 可以使用 `defer` 或 `async` 吗？效果如何？
@@ -220,7 +219,7 @@
 
 ---
 
-> ### 8. `type="module"` 与 `defer` / `async` 的关系？
+## 8. `type="module"` 与 `defer` / `async` 的关系？
 
 **问：**
 使用 `<script type="module">` 时，它的加载和执行行为和 `defer` / `async` 有什么关系？

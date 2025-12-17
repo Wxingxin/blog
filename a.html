@@ -1,0 +1,28 @@
+<input id="file" type="file" />
+<button id="btn">上传</button>
+
+<script>
+  const fileInput = document.getElementById("file");
+  const btn = document.getElementById("btn");
+
+  btn.addEventListener("click", async () => {
+    const file = fileInput.files[0];
+    if (!file) return alert("先选一个文件");
+
+    // 1) 组装 multipart/form-data
+    const fd = new FormData();
+    fd.append("file", file);          // 字段名叫 file
+    fd.append("note", "hello");       // 也可以带其他字段
+
+    // 2) 发请求
+    const res = await fetch("/upload", {
+      method: "POST",
+      body: fd, // 注意：不要手动设置 Content-Type，浏览器会自动加 boundary
+    });
+
+    if (!res.ok) return alert("上传失败");
+    const data = await res.json();
+    console.log("上传成功：", data);
+    alert("上传成功");
+  });
+</script>

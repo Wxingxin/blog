@@ -1,0 +1,10 @@
+/* 不起作用 */
+/* sidebar 字体大小 */
+:where(.rspress-sidebar) a {
+  font-size: 16px;
+}
+
+/* 子级 */
+:where(.rspress-sidebar) ul ul a {
+  font-size: 14px;
+}

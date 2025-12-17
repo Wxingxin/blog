@@ -12,16 +12,27 @@
   {
     "text": "JS",
     "link": "/js/",
-    "activeMatch": "/js/"
+    "activeMatch": "/JS/"
   },
   {
-    "text": "ts",
+    "text": "TS",
     "link": "/ts/",
-    "activeMatch": "/ts/"
+    "activeMatch": "/TS/"
   },
   {
     "text": "Engineering",
     "link": "/Engineering/",
     "activeMatch": "/Engineering/"
+  },
+  {
+    "text": "REACT",
+    "link": "/react/",
+    "activeMatch": "/react/"
+  },
+  
+  {
+    "text": "NETWORK",
+    "link": "/network/",
+    "activeMatch": "/network/"
   }
 ]

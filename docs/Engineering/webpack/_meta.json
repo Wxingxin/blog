@@ -2,31 +2,31 @@
   {
     "type": "file",
     "name": "index",
-    "label": "Index"
+    "label": "WEBPACK"
   },
   {
     "type": "file",
     "name": "loader",
-    "label": "loader"
+    "label": "LOADER"
   },
   {
     "type": "file",
     "name": "plugin",
-    "label": "plugin"
+    "label": "PLUGIN"
   },
   {
     "type": "file",
     "name": "babel",
-    "label": "babel"
+    "label": "BABEL"
   },
   {
     "type": "file",
     "name": "eslint",
-    "label": "coneslintcatArray"
+    "label": "ESLINT"
   },
   {
     "type": "file",
     "name": "other",
-    "label": "other"
+    "label": "OTHER"
   }
 ]
