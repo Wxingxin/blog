@@ -5,7 +5,7 @@
     "activeMatch": "/guide/"
   },
   {
-    "text": "HTML|CSS",
+    "text": "HTML & CSS",
     "link": "/htmlANDcss/",
     "activeMatch": "/html/"
   },
@@ -29,10 +29,15 @@
     "link": "/react/",
     "activeMatch": "/react/"
   },
-  
+
   {
     "text": "NETWORK",
     "link": "/network/",
     "activeMatch": "/network/"
+  },
+  {
+    "text": "BROWSER",
+    "link": "/browser/",
+    "activeMatch": "/browser/"
   }
 ]

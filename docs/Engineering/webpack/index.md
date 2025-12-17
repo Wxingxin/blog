@@ -1,6 +1,6 @@
-的# WebPack 了解 和 配置
 
-> ### Webpack是什么？解决了哪些问题？
+
+## Webpack是什么？解决了哪些问题？
 
 **Webpack** 是一个现代化的 **前端模块打包工具（Module Bundler）**。
 它的主要作用：
@@ -17,7 +17,7 @@
 - 提高加载性能；
 - 方便做 Tree Shaking、代码分割、懒加载等优化。
 
-> ### Webpack 的核心思想是什么？
+## Webpack 的核心思想是什么？
 
 Webpack 的核心思想是：
 
@@ -30,7 +30,7 @@ Webpack 的核心思想是：
 - 生成依赖图；
 - 统一打包成 bundle。
 
-> ### Webpack 的核心组成部分
+## Webpack 的核心组成部分
 
 Webpack 主要由以下 **5 个核心部分** 组成：
 
@@ -54,7 +54,7 @@ Webpack 主要由以下 **5 个核心部分** 组成：
 
 
 
-> ### webpack核心部分的基础使用和作用
+## webpack核心部分的基础使用和作用
 
 ###### 1️⃣ Entry（入口）
 
@@ -267,7 +267,7 @@ module.exports = {
 ---
 
 
-> ### 什么是模块打包（Module Bundling）？**
+## 什么是模块打包（Module Bundling）？**
 
 模块打包（Module Bundling）指的是：
 
@@ -302,7 +302,7 @@ dist/
 ```
 
 
-> ###  Webpack 默认支持哪些模块规范？**
+##  Webpack 默认支持哪些模块规范？**
 
 Webpack 是一个“通用模块打包器”，它开箱即支持多种模块规范：
 
@@ -337,7 +337,7 @@ import('./a.js')   // 代码分割、懒加载
 * Webpack 会把所有模块统一编译成浏览器可执行的 bundle
 * Node.js 的原生 ESM/CJS 差异在 Webpack 内部都被抽象掉
 
-> ###  **什么是依赖图谱（Dependency Graph）？**
+##  **什么是依赖图谱（Dependency Graph）？**
 
 Webpack 的核心思想是：
 
@@ -393,7 +393,7 @@ Webpack 根据依赖图决定把哪些文件合并进 main.js 或分离成 chunk
 图结构可让 Webpack 检测循环 import。
 
 
-> ### **什么是 AST？Webpack 构建中如何用到 AST？**
+## **什么是 AST？Webpack 构建中如何用到 AST？**
 
 #### **AST（抽象语法树，Abstract Syntax Tree）是什么？**
 
@@ -415,7 +415,7 @@ AST 的结构会表示：
 
 ---
 
-> ### **Webpack / Loader / Plugin 如何使用 AST？**
+## **Webpack / Loader / Plugin 如何使用 AST？**
 
 Webpack 本身依赖大量 AST 工具（如 acorn），AST 是 Webpack 构建的核心。
 
@@ -462,7 +462,7 @@ Babel loader 做的事情就是：
 
 # 💯💯💯 细致的配置 和 区别
 
-> ### Webpack 的 Entry 配置可以有哪些写法？
+## Webpack 的 Entry 配置可以有哪些写法？
 
 **Entry（入口）** 决定了 Webpack 从哪里开始构建依赖图。
 
@@ -482,7 +482,7 @@ entry: {
 }
 ```
 
-> ###  Output 的 filename 和 chunkFilename 区别是什么？
+##  Output 的 filename 和 chunkFilename 区别是什么？
 
 ```js
 output: {
@@ -506,7 +506,7 @@ import('./user.js') // 动态引入
 
 ---
 
-> ### Loader 是如何工作的？
+## Loader 是如何工作的？
 
 **Loader 的作用：**
 
@@ -539,7 +539,7 @@ module: {
 
 
 
-> ### Webpack 的 Mode 有哪几种？作用是什么？
+## Webpack 的 Mode 有哪几种？作用是什么？
 
 Webpack 提供三种构建模式：
 
@@ -560,7 +560,7 @@ mode: 'development' // 或 'production'
 
 ---
 
-> ###  Plugin 与 Loader 的区别？
+##  Plugin 与 Loader 的区别？
 
 1. 两者在基础差别：
 
@@ -705,7 +705,7 @@ module.exports = {
 
 # 💯💯💯 打包流程
  
-> ### Webpack 打包的总体流程图
+## Webpack 打包的总体流程图
 
 ```
 ┌─────────────────────────────┐
@@ -756,7 +756,7 @@ module.exports = {
 └───────────────────────────────┘
 ```
 
-> ### **2️⃣ Webpack 的依赖收集是如何实现的？**
+## **2️⃣ Webpack 的依赖收集是如何实现的？**
 
 Webpack 构建时，会使用 **AST（抽象语法树）** 来分析代码结构：
 
@@ -773,7 +773,7 @@ Webpack 构建时，会使用 **AST（抽象语法树）** 来分析代码结构
 
 ---
 
-> ### **3️⃣ Loader 的执行顺序是怎样的？**
+## **3️⃣ Loader 的执行顺序是怎样的？**
 
 Loader 是一个 **函数链**，执行顺序为：
 
@@ -797,7 +797,7 @@ use: ['style-loader', 'css-loader', 'postcss-loader']
 
 ---
 
-> ### **4️⃣ Plugin 的执行原理？**
+## **4️⃣ Plugin 的执行原理？**
 
 Webpack 的插件系统基于 **Tapable 库**（实现发布-订阅模式）。
 
@@ -821,7 +821,7 @@ class MyPlugin {
 
 ---
 
-> ### **5️⃣ Webpack 的构建生命周期（Compiler、Compilation）**
+## **5️⃣ Webpack 的构建生命周期（Compiler、Compilation）**
 
 Webpack 有两个核心对象：
 
@@ -843,7 +843,7 @@ Webpack 有两个核心对象：
 
 ---
 
-> ### **6️⃣ Webpack 如何解析模块路径？**
+## **6️⃣ Webpack 如何解析模块路径？**
 
 Webpack 使用自定义的模块解析器（基于 enhanced-resolve）：
 
@@ -859,13 +859,13 @@ Webpack 使用自定义的模块解析器（基于 enhanced-resolve）：
    * 遵循 Node.js 模块解析算法。
 
 ---
-> ###
+##
 
-> ###
+##
 
-> ###
+##
 
-> ###
+##
 
 # 💯💯💯 性能优化 和 相应的细致
 
@@ -887,7 +887,7 @@ Webpack 使用自定义的模块解析器（基于 enhanced-resolve）：
 
 ---
 
-> ### **2️⃣ 如何优化 Webpack 的打包体积？**
+## **2️⃣ 如何优化 Webpack 的打包体积？**
 
 核心目标：“**让最终产物更小、更少、更高效**”。
 

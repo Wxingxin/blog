@@ -278,7 +278,6 @@ module.exports = {
 
 ## 四、静态资源 loader（图片 / 字体等）
 
-webpack5 推荐使用内置 `asset modules`，但面试 loader 也经常问。
 
 ### 1. 老写法：`file-loader` / `url-loader`
 
@@ -464,22 +463,6 @@ React 本身不需要专门 loader，一般通过 `babel-loader` + `@babel/prese
 ## 七、工具 & 辅助类 loader
 
 ### 1. 代码检查：`eslint-loader`（已不推荐）→ `eslint-webpack-plugin`
-
-虽然不是 loader，但面试经常混着问。
-
-**老写法（不推荐）**：
-
-```js
-{
-  enforce: 'pre',
-  test: /\.(j|t)sx?$/,
-  exclude: /node_modules/,
-  loader: 'eslint-loader',
-  options: {
-    fix: true
-  }
-}
-```
 
 **新推荐方式：插件**
 
