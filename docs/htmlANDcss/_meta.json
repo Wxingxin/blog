@@ -1,12 +1,12 @@
 [
   {
     "type": "dir",
-    "name": "html",
-    "label": "HTML"
+    "name": "css",
+    "label": "CSS"
   },
   {
     "type": "dir",
-    "name": "css",
-    "label": "CSS"
+    "name": "html",
+    "label": "HTML"
   }
 ]

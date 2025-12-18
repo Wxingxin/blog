@@ -88,10 +88,5 @@
     "type": "file",
     "name": "Things-03-Ajax",
     "label": "Ajax"
-  },
-  {
-    "type": "file",
-    "name": "Things-04-file",
-    "label": "file"
   }
 ]

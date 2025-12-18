@@ -198,7 +198,7 @@
   - **脱离文档流**：元素会完全从文档流中移除，**不再占据任何空间**。后面的元素会当它不存在一样，占据它的位置。
   - **定位参照物**：
     1.  如果所有祖先元素都是 `static`（默认值），那么它会相对于**初始包含块**（initial containing block）进行定位，通常就是浏览器视口（viewport）。
-    2.  如果存在一个或多个非 `static`（即 `relative`, `absolute`, `fixed`, `sticky`）的祖先元素，它会相对于**离它最近的那个祖先元素**的内边距（padding edge）进行定位。
+    2.  如果存在一个或多个非 `static`（即 `relative`, `absolute`, `fixed`, `sticky`）的祖先元素，它会相对于**离它最近的那个祖先元素**的 **内边距** （padding edge）进行定位。
   - **定位属性生效**：通过 `top`, `right`, `bottom`, `left` 来确定最终位置。
 - **面试要点**：
   - **问**：“`absolute` 是相对于谁定位的？”
