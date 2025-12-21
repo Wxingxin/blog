@@ -142,3 +142,206 @@ bus.emit("greet", "Bob");   // 无输出
 ---
 
 是否希望我帮你写一个 **基于浏览器 DOM 事件的发布订阅模式版本**（不依赖类），更贴近前端开发实际？
+# 
+
+下面用**通俗 + 结构化**的方式，把 **JS 的发布-订阅（Publish–Subscribe）模式**讲清楚：**怎么用、核心思想是什么、数据是怎么传递的**。
+
+---
+
+## 一、什么是发布-订阅（Pub/Sub）
+
+**一句话概括：**
+
+> **发布者不直接调用订阅者，只负责“发布消息”；
+> 订阅者只关心“我订什么消息”，中间通过一个“事件中心”解耦。**
+
+三要素：
+
+* **发布者（Publisher）**：发消息
+* **订阅者（Subscriber）**：收消息
+* **事件中心 / 调度中心（Event Bus）**：管理消息和回调
+
+---
+
+## 二、核心思想（非常重要）
+
+### 1️⃣ 解耦（核心中的核心）
+
+* 发布者 **不知道** 谁在接收
+* 订阅者 **不知道** 谁在发送
+* 双方通过 **事件名** 关联
+
+👉 改一个模块，不影响其他模块
+
+---
+
+### 2️⃣ 面向消息，而不是面向对象调用
+
+❌ 传统方式（强耦合）：
+
+```js
+a.update(b.data)
+```
+
+✅ 发布-订阅（弱耦合）：
+
+```js
+eventBus.emit('dataChange', data)
+```
+
+---
+
+### 3️⃣ 一对多通信
+
+* 一个事件
+* 多个订阅者
+* 全部会被触发
+
+---
+
+## 三、最基础的 JS 发布-订阅实现
+
+### 1️⃣ 一个简单的事件中心（Event Bus）
+
+```js
+class EventBus {
+  constructor() {
+    this.events = {}
+  }
+
+  // 订阅
+  on(eventName, callback) {
+    if (!this.events[eventName]) {
+      this.events[eventName] = []
+    }
+    this.events[eventName].push(callback)
+  }
+
+  // 发布
+  emit(eventName, data) {
+    const callbacks = this.events[eventName]
+    if (callbacks) {
+      callbacks.forEach(cb => cb(data))
+    }
+  }
+
+  // 取消订阅
+  off(eventName, callback) {
+    const callbacks = this.events[eventName]
+    if (!callbacks) return
+    this.events[eventName] = callbacks.filter(cb => cb !== callback)
+  }
+}
+```
+
+---
+
+### 2️⃣ 使用示例
+
+```js
+const bus = new EventBus()
+
+// 订阅者 A
+bus.on('login', (user) => {
+  console.log('A 收到登录信息:', user)
+})
+
+// 订阅者 B
+bus.on('login', (user) => {
+  console.log('B 统计登录用户:', user.name)
+})
+
+// 发布者
+bus.emit('login', { name: 'Tom', age: 18 })
+```
+
+**输出：**
+
+```
+A 收到登录信息: {name: 'Tom', age: 18}
+B 统计登录用户: Tom
+```
+
+---
+
+## 四、数据的传递线路（重点理解）
+
+### 1️⃣ 数据流向图
+
+![Image](https://miro.medium.com/0%2AS40OrbUOJ5NpJ9rb?utm_source=chatgpt.com)
+
+![Image](https://docs.cloud.google.com/static/solutions/images/event-driven-architecture-pubsub-1-comparison-overview.svg?utm_source=chatgpt.com)
+
+![Image](https://cdn-media-1.freecodecamp.org/images/sPkTz3OExo-FXteQwtFkoDVQmZeFfHE56-WJ?utm_source=chatgpt.com)
+
+### 2️⃣ 文字版流程
+
+```
+订阅者A ─┐
+         ├─> [事件中心 EventBus] <─ 发布者 emit
+订阅者B ─┘
+```
+
+### 3️⃣ 实际执行顺序
+
+1. 订阅者通过 `on` 把 **回调函数** 注册到事件中心
+2. 发布者调用 `emit(eventName, data)`
+3. 事件中心：
+
+   * 找到对应事件名
+   * 取出所有回调
+   * **把 data 依次传给每个回调**
+4. 每个订阅者处理自己的逻辑
+
+📌 **数据并不是直接从发布者传给订阅者，而是“经由事件中心转发”**
+
+---
+
+## 五、和观察者模式的区别（常考）
+
+| 对比点    | 发布-订阅                  | 观察者    |
+| ------ | ---------------------- | ------ |
+| 是否有中间层 | ✅ 有事件中心                | ❌ 没有   |
+| 耦合度    | 更低                     | 较高     |
+| 谁管理关系  | 事件中心                   | 被观察者   |
+| JS 场景  | EventBus / Vue / Redux | DOM 监听 |
+
+👉 **发布-订阅 = 观察者 + 中介**
+
+---
+
+## 六、真实项目中的使用场景
+
+### ✅ 常见用途
+
+* Vue / React 中的 **组件通信**
+* 全局消息通知
+* 登录状态变化
+* 跨模块通信
+* WebSocket 消息分发
+
+### ✅ 实际例子
+
+* Vue 2：`this.$emit / this.$on`
+* Node.js：`EventEmitter`
+* Redux：`store.subscribe`
+* 浏览器：`addEventListener`
+
+---
+
+## 七、一句话总结（面试版）
+
+> **发布-订阅模式的核心是通过事件中心实现模块解耦。
+> 发布者只负责发布事件，订阅者只关心事件本身，
+> 数据通过事件中心从发布者传递给所有订阅者。**
+
+---
+
+如果你愿意，我可以继续帮你讲：
+
+* 🔹 **手写 EventEmitter（面试级）**
+* 🔹 **Vue 中的发布订阅原理**
+* 🔹 **Redux / mitt 的实现对比**
+* 🔹 **发布订阅 vs Promise / async 区别**
+
+你想偏 **面试** 还是 **项目实战**？

@@ -8,15 +8,15 @@
 
 1. 防抖 (debounce)
 
--  搜索框输入（停止输入后再请求接口）
--  窗口大小变化（resize）事件
--  按钮点击防止重复提交
+- 搜索框输入（停止输入后再请求接口）
+- 窗口大小变化（resize）事件
+- 按钮点击防止重复提交
 
 2. 节流 (throttle)
 
--  滚动加载（scroll）
--  鼠标移动（mousemove）
--  高频点击（游戏按键、抽奖按钮）
+- 滚动加载（scroll）
+- 鼠标移动（mousemove）
+- 高频点击（游戏按键、抽奖按钮）
 
 # 防抖
 
@@ -24,47 +24,46 @@
 
 ```js
 function debounce(fn, delay) {
-   let timer;
-   return function (...args) {
-      clearTimeout(timer); // 每次触发都清除之前的定时器
-      timer = setTimeout(() => {
-         fn.apply(this, args);
-      }, delay);
-   };
+  let timer;
+  return function (...args) {
+    clearTimeout(timer); // 每次触发都清除之前的定时器
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  };
 }
 
 // 使用
 const handleInput = debounce(() => {
-   console.log("搜索请求发送");
+  console.log("搜索请求发送");
 }, 500);
 
 document.querySelector("input").addEventListener("input", handleInput);
 ```
 
-
 ```js
 function debounce(fn, delay = 300, immediate = false) {
-   let timer = null;
-   const debounced = function (...args) {
-      const context = this;
-      if (timer) clearTimeout(timer);
+  let timer = null;
+  const debounced = function (...args) {
+    const context = this;
+    if (timer) clearTimeout(timer);
 
-      if (immediate && !timer) {
-         fn.apply(context, args); // 立即执行
-      }
+    if (immediate && !timer) {
+      fn.apply(context, args); // 立即执行
+    }
 
-      timer = setTimeout(() => {
-         fn.apply(context, args);
-         timer = null;
-      }, delay);
-   };
-
-   debounced.cancel = function () {
-      clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(context, args);
       timer = null;
-   };
+    }, delay);
+  };
 
-   return debounced;
+  debounced.cancel = function () {
+    clearTimeout(timer);
+    timer = null;
+  };
+
+  return debounced;
 }
 ```
 
@@ -74,46 +73,45 @@ function debounce(fn, delay = 300, immediate = false) {
 
 ```js
 function throttle(fn, delay) {
-   let startTime = 0;
-   return function (...args) {
-      const nowTime = Date.now();
-      if (nowTime - startTime >= delay) {
-         fn.apply(this, args);
-         startTime = nowTime;
-      }
-   };
+  let startTime = 0;
+  return function (...args) {
+    const nowTime = Date.now();
+    if (nowTime - startTime >= delay) {
+      fn.apply(this, args);
+      startTime = nowTime;
+    }
+  };
 }
 
 // 使用
 const handleScroll = throttle(() => {
-   console.log("页面滚动中...");
+  console.log("页面滚动中...");
 }, 1000);
 
 window.addEventListener("scroll", handleScroll);
 ```
 
-
 ```js
 function throttle(fn, delay = 300) {
-   let last = 0;
-   let timer = null;
-   return function (...args) {
-      const now = Date.now();
-      const remaining = delay - (now - last);
-      if (remaining <= 0) {
-         if (timer) {
-            clearTimeout(timer);
-            timer = null;
-         }
-         fn.apply(this, args);
-         last = now;
-      } else if (!timer) {
-         timer = setTimeout(() => {
-            fn.apply(this, args);
-            last = Date.now();
-            timer = null;
-         }, remaining);
+  let last = 0;
+  let timer = null;
+  return function (...args) {
+    const now = Date.now();
+    const remaining = delay - (now - last);
+    if (remaining <= 0) {
+      if (timer) {
+        clearTimeout(timer);
+        timer = null;
       }
-   };
+      fn.apply(this, args);
+      last = now;
+    } else if (!timer) {
+      timer = setTimeout(() => {
+        fn.apply(this, args);
+        last = Date.now();
+        timer = null;
+      }, remaining);
+    }
+  };
 }
 ```
